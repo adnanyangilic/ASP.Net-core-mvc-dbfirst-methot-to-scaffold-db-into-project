@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using DbFirst.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using DbFirst.Models.Northwind;
 
 namespace DbFirst
 {
@@ -37,6 +38,11 @@ namespace DbFirst
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<NorthwindEntities>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("Northwind"))
+            );
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 

@@ -1,0 +1,1 @@
+﻿dotnet ef dbcontext scaffold "Data Source={server};Database={database-name};Persist Security Info=True;User ID={username};Password={password};" Microsoft.EntityFrameworkCore.SqlServer -o Models\Northwind -c NorthwindEntities
